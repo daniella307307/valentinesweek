@@ -7,17 +7,24 @@ export default function ValentineHeart() {
   return (
     <div className="relative flex items-center justify-center h-screen w-full overflow-hidden bg-gradient-to-br from-[#FDEFF4] via-[#F8D7DA] to-[#E8D8C4]">
 
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {!isOpening && (
-          <>
+          <motion.div
+            key="main"
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.6 }}
+            className="relative flex items-center justify-center"
+          >
             {/* Heart */}
             <motion.div
-              animate={{ scale: [1, 1.07, 1] }}
+              whileTap={{ scale: 0.95 }}
+              animate={{ scale: [1, 1.06, 1] }}
               transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-              className="relative z-10"
+              className="relative z-10 cursor-pointer"
+              onClick={() => setIsOpening(true)}
             >
               <motion.svg
-                width={500}
+                width={560}
                 viewBox="0 0 100 100"
                 fill="none"
                 className="drop-shadow-[0_0_120px_rgba(255,105,180,0.6)]"
@@ -30,7 +37,7 @@ export default function ValentineHeart() {
                   </radialGradient>
 
                   <filter id="softEdge">
-                    <feGaussianBlur stdDeviation="1.5" />
+                    <feGaussianBlur stdDeviation="1.2" />
                   </filter>
                 </defs>
 
@@ -42,29 +49,19 @@ export default function ValentineHeart() {
               </motion.svg>
             </motion.div>
 
-            {/* Text */}
+            {/* Text centered properly */}
             <motion.h1
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="absolute text-xl font-semibold text-white text-center"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 }}
+              className="absolute z-20 text-2xl md:text-3xl font-semibold text-white text-center px-6"
               style={{
                 textShadow: "0px 6px 25px rgba(255,105,180,0.6)",
               }}
             >
               Happy Valentine's Day ❤️
             </motion.h1>
-
-            {/* Fingerprint Button */}
-            <motion.button
-              whileTap={{ scale: 0.9 }}
-              whileHover={{ scale: 1.1 }}
-              onClick={() => setIsOpening(true)}
-              className="absolute bottom-16 w-20 h-20 rounded-full bg-white/20 backdrop-blur-md border border-white/40 flex items-center justify-center shadow-lg z-20"
-            >
-              <span className="text-3xl">🖐🏻</span>
-            </motion.button>
-          </>
+          </motion.div>
         )}
       </AnimatePresence>
 
@@ -75,14 +72,14 @@ export default function ValentineHeart() {
             <motion.div
               initial={{ x: 0 }}
               animate={{ x: "-100%" }}
-              transition={{ duration: 1, ease: "easeInOut" }}
-              className="absolute left-0 top-0 h-full w-1/2 bg-[#F8D7DA] z-30"
+              transition={{ duration: 3, ease: [0.77, 0, 0.175, 1] }}
+              className="absolute left-0 top-0 h-full w-1/2 bg-[#F8D7DA] z-30 shadow-2xl"
             />
             <motion.div
               initial={{ x: 0 }}
               animate={{ x: "100%" }}
-              transition={{ duration: 1, ease: "easeInOut" }}
-              className="absolute right-0 top-0 h-full w-1/2 bg-[#F8D7DA] z-30"
+              transition={{ duration: 3, ease: [0.77, 0, 0.175, 1] }}
+              className="absolute right-0 top-0 h-full w-1/2 bg-[#F8D7DA] z-30 shadow-2xl"
               onAnimationComplete={() => {
                 window.location.href = "/valentine-week";
               }}
