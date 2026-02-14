@@ -72,13 +72,13 @@ export default function ValentineHeart() {
             <motion.div
               initial={{ x: 0 }}
               animate={{ x: "-100%" }}
-              transition={{ duration: 3, ease: [0.77, 0, 0.175, 1] }}
+              transition={{ duration: 1.2, ease: [0.77, 0, 0.175, 1] }}
               className="absolute left-0 top-0 h-full w-1/2 bg-[#F8D7DA] z-30 shadow-2xl"
             />
             <motion.div
               initial={{ x: 0 }}
               animate={{ x: "100%" }}
-              transition={{ duration: 3, ease: [0.77, 0, 0.175, 1] }}
+              transition={{ duration: 1.2, ease: [0.77, 0, 0.175, 1] }}
               className="absolute right-0 top-0 h-full w-1/2 bg-[#F8D7DA] z-30 shadow-2xl"
               onAnimationComplete={() => {
                 window.location.href = "/valentine-week";

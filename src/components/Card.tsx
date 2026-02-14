@@ -193,10 +193,12 @@ export default function Card({ currentDay }: { currentDay: any }) {
   className="
     mt-10
     p-[1em]
-    text-[1em]
+    text-2xl
     bg-[#F8D7DA]
-    text-[#fff]
+    text-italic
+    font-[#4A0E1E] 
     font-semibold
+    font-serif italic
     rounded-full
     shadow-lg
     border border-[#FFF]/100
