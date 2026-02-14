@@ -1,24 +1,19 @@
-import { motion } from "framer-motion";
-import Card from "../components/Card";
-function ValentineWeek() {
+import Card, { valentineDays } from "../components/Card";
+import FloatingHearts from "../components/FloatingHearts";
+
+export default function ValentineWeek() {
   return (
-    <div className="relative flex items-center justify-center h-screen w-full overflow-hidden bg-gradient-to-br from-[#FDEFF4] via-[#F8D7DA] to-[#E8D8C4]">
-     <motion.div
-              initial={{ x: 0 }}
-              animate={{ x: "-100%" }}
-              transition={{ duration: 1, ease: [0.77, 0, 0.175, 1] }}
-              className="absolute left-0 top-0 h-full  bg-[#F8D7DA] z-30 shadow-2xl"
-            />
-            <Card />
-            <motion.div
-              initial={{ x: 0 }}
-              animate={{ x: "100%" }}
-              transition={{ duration: 1, ease: [0.77, 0, 0.175, 1] }}
-              className="absolute right-0 top-0 h-full bg-[#F8D7DA] z-30 shadow-2xl"
-             
-            />
+    <div className="relative min-h-screen bg-gradient-to-br from-[#FDEFF4] via-[#F8D7DA] to-[#E8D8C4] overflow-hidden">
+
+      <FloatingHearts />
+
+      <div className="relative z-10 py-16">
+        <div className="flex flex-wrap justify-center gap-12 px-6">
+          {valentineDays.map((day) => (
+            <Card key={day.id} currentDay={day} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 }
-
-export default ValentineWeek;
