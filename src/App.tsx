@@ -9,8 +9,8 @@ function App() {
     <AnimatePresence mode="wait">
      <Router>
        <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/valentine-week" element={<ValentineWeek/>} />
+        <Route path="/" element={<ValentineWeek/>} />
+        <Route path="/valentine-week" element={<Home/>} />
         
       </Routes>
      </Router>
